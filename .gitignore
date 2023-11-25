@@ -3,5 +3,6 @@
 /.pytest_cache/
 /__pycache__/
 /results/
+/allure-report/
 scheme/__pycache__/
 pytest.log
