@@ -1,0 +1,20 @@
+name: Automated API tests
+
+on:
+  push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+          pip install -r requirements.txt
+      - name: Run tests
+        run: pytest
+        
