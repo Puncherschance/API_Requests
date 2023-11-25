@@ -1,7 +1,20 @@
 name: Automated API tests
 
 on:
-  push
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose target
+        required: true
+        default:
+        type: choice
+        options:
+          - GET_tests
+          - POST_tests
+          - PUT_tests
+          - PATCH_tests
+          - DELETE_tests
+          - ALL_tests
 
 jobs:
   test:
@@ -15,5 +28,22 @@ jobs:
           python-version: "3.12"
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Run tests
+      - name: GET_tests
+        if: "github.event.inputs.deployment_target == 'GET_tests'"
+        run: pytest -m GET
+      - name: POST_tests
+        if: "github.event.inputs.deployment_target == 'POST_tests'"
+        run: pytest -m POST
+      - name: PUT_tests
+        if: "github.event.inputs.deployment_target == 'PUT_tests'"
+        run: pytest -m PUT
+      - name: PATCH_tests
+        if: "github.event.inputs.deployment_target == 'PATCH_tests'"
+        run: pytest -m PATCH
+      - name: DELETE_tests
+        if: "github.event.inputs.deployment_target == 'DELETE_tests'"
+        run: pytest -m DELETE
+      - name: ALL_tests
+        if: "github.event.inputs.deployment_target == 'ALL_tests'"
         run: pytest
+

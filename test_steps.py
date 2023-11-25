@@ -3,7 +3,7 @@ import allure
 from env import *
 
 
-@pytest.mark.smoke
+@pytest.mark.GET
 @allure.feature("GET Requests")
 class TestGetRequests:
 
@@ -22,7 +22,7 @@ class TestGetRequests:
         write_log(res)
 
 
-@pytest.mark.smoke
+@pytest.mark.POST
 @allure.feature("POST Requests")
 class TestPostRequests:
 
@@ -36,7 +36,7 @@ class TestPostRequests:
         write_log(res)
 
 
-@pytest.mark.smoke
+@pytest.mark.PUT
 @allure.feature("PUT Requests")
 class TestPutRequests:
 
@@ -50,7 +50,7 @@ class TestPutRequests:
         write_log(res)
 
 
-@pytest.mark.smoke
+@pytest.mark.PATCH
 @allure.feature("PATCH Requests")
 class TestPatchRequests:
 
@@ -64,7 +64,7 @@ class TestPatchRequests:
         write_log(res)
 
 
-@pytest.mark.smoke
+@pytest.mark.DELETE
 @allure.feature("DELETE Requests")
 class TestDeleteRequests:
 
