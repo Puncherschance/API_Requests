@@ -6,7 +6,7 @@ on:
       deployment_target:
         description: Choose target
         required: true
-        default:
+        default: ALL_tests
         type: choice
         options:
           - GET_tests
@@ -15,7 +15,6 @@ on:
           - PATCH_tests
           - DELETE_tests
           - ALL_tests
-
 jobs:
   test:
     runs-on: ubuntu-latest
